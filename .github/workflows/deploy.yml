@@ -46,10 +46,10 @@ jobs:
           npm install
           npm run build
 
-      - name: Replace local path in config.php
-        shell: bash
-        run: |
-          perl -pi -e "s|$PWD|/app|g" bootstrap/cache/config.php
+#      - name: Replace local path in config.php
+#        shell: bash
+#        run: |
+#          perl -pi -e "s|$PWD|/app|g" bootstrap/cache/config.php
       - name: Deploy to wasmer.io
         run:  wasmer deploy --token=${{ secrets.WASMER_TOKEN }} --non-interactive --no-wait --no-persist-id
 
