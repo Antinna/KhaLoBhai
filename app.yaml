@@ -1,5 +1,6 @@
 kind: wasmer.io/App.v0
 package: .
+owner: test02
 app_id: da_KGzIxtmU9N8B
 scaling:
   mode: single_concurrency
