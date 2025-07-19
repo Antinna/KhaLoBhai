@@ -1,6 +1,6 @@
 kind: wasmer.io/App.v0
 package: .
-owner: test02
+#owner: test02
 app_id: da_KGzIxtmU9N8B
 scaling:
   mode: single_concurrency
@@ -17,4 +17,4 @@ files:
   - '.env'
 volumes:
   - name: storage_app
-    mount: /app/storage/app
+    mount: storage/app
