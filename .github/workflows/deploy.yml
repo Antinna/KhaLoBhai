@@ -38,7 +38,7 @@ jobs:
         shell: bash
         run: |
           php artisan storage:link
-          php artisan config:cache
+#          php artisan config:cache
 
       - name: Install and build frontend assets
         shell: bash
@@ -46,10 +46,10 @@ jobs:
           npm install
           npm run build
 
-      - name: Replace local path in config.php
-        shell: bash
-        run: |
-          sed -i "s|$PWD|/app|g" bootstrap/cache/config.php
+#      - name: Replace local path in config.php
+#        shell: bash
+#        run: |
+#          sed -i "s|$PWD|/app|g" bootstrap/cache/config.php
       - name: Deploy to wasmer.io
         run:  wasmer deploy --token=${{ secrets.WASMER_TOKEN }} --non-interactive --no-wait --no-persist-id
 
