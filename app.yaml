@@ -13,8 +13,8 @@ env:
 capabilities:
   database:
     engine: mysql
-#files:
-#  - '.env'
+files:
+  - '.env'
 volumes:
   - name: storage_app
     mount: storage/app
