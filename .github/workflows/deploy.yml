@@ -39,7 +39,7 @@ jobs:
 
           php artisan config:cache
 
-          sed -i "s|$PWD|g" bootstrap/cache/config.php
+#          sed -i "s|$PWD|g" bootstrap/cache/config.php
       - name: Deploy to wasmer.io
         run:  wasmer deploy --token=${{ secrets.WASMER_TOKEN }} --non-interactive --no-wait --no-persist-id
 
