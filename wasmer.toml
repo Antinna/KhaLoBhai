@@ -3,7 +3,7 @@
 
 [fs]
 # Map local project files directly to WASI filesystem root
-"/app" = "."
+"/app/" = "."
 
 [[command]]
 name = "run"
