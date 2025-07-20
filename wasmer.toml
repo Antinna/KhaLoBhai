@@ -1,0 +1,13 @@
+[dependencies]
+"php/php-eh" = "=8.3.404-beta.6"
+
+[fs]
+# Map local project files directly to WASI filesystem root
+"/app" = "."
+
+[[command]]
+name = "run"
+module = "php/php-eh:php"
+runner = "wasi"
+[command.annotations.wasi]
+main-args = ["-t", "/app/public", "-S", "0.0.0.0:8080"]

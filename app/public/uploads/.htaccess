@@ -1,0 +1,21 @@
+# Allow access to uploaded files
+<Files "*">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+# Prevent execution of PHP files
+<FilesMatch "\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|sh|cgi)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Set proper MIME types for common file types
+<IfModule mod_mime.c>
+    AddType image/jpeg .jpg .jpeg
+    AddType image/png .png
+    AddType image/gif .gif
+    AddType image/webp .webp
+    AddType application/pdf .pdf
+    AddType text/plain .txt
+</IfModule>

@@ -1,0 +1,51 @@
+name: Deploy to Wasmer
+
+on:
+  push:
+    branches: [ '*' ]
+  pull_request:
+    branches: [ '*' ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Wasmer
+        uses: wasmerio/setup-wasmer@v3.1
+
+      - name: Install PHP and Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, intl
+          tools: composer
+      - name: Install Composer dependencies
+        shell: bash
+        run: |
+          composer install --no-interaction --prefer-dist --optimize-autoloader
+          composer dump-autoload --optimize
+
+      # - name: Set up 
+      #   shell: bash
+      #   run: |
+          
+
+      # - name: Install and build frontend assets
+      #   shell: bash
+      #   run: |
+          
+
+      
+      - name: Deploy to wasmer.io
+        run:  wasmer deploy --token=${{ secrets.WASMER_TOKEN }} --non-interactive --no-wait --no-persist-id
+
+

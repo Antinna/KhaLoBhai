@@ -1,0 +1,31 @@
+kind: wasmer.io/App.v0
+package: .
+#owner: test02
+app_id: da_KGzIxtmU9N8B
+scaling:
+  mode: single_concurrency
+env:
+  DB_HOST: ${{DB_HOST}}
+  DB_PORT: ${{DB_PORT}}
+  DB_NAME: ${{DB_NAME}}
+  DB_USERNAME: ${{DB_USERNAME}}
+  DB_PASSWORD: ${{DB_PASSWORD}}
+capabilities:
+  database:
+    engine: mysql
+
+# files:
+#   - '.env'
+volumes:
+  - name: public_uploads
+    mount: public/uploads
+  - name: public_assets
+    mount: public/assets
+  - name: writable_uploads
+    mount: writable/uploads
+  - name: writable_cache
+    mount: writable/cache
+  - name: writable_logs
+    mount: writable/logs
+  - name: writable_session
+    mount: writable/session
