@@ -2,7 +2,7 @@
 "php/php-eh" = "=8.3.404-beta.6"
 
 [fs]
-"/app/" = "."
+"/app" = "app"
 
 [[command]]
 name = "run"
