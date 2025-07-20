@@ -2,7 +2,7 @@
 "php/php-32" = "=8.3.2101-rc.1"
 
 [fs]
-"/app" = "app"
+"/app/" = "."
 
 [[command]]
 name = "run"
