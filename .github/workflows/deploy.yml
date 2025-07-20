@@ -29,22 +29,11 @@ jobs:
           extensions: mbstring, intl
           tools: composer
       - name: Install Composer dependencies
+        
         shell: bash
         run: |
+          cd app
           composer install --no-interaction --prefer-dist --optimize-autoloader
-          composer dump-autoload --optimize
-
-      # - name: Set up 
-      #   shell: bash
-      #   run: |
-          
-
-      # - name: Install and build frontend assets
-      #   shell: bash
-      #   run: |
-          
-
-      
       - name: Deploy to wasmer.io
         run:  wasmer deploy --token=${{ secrets.WASMER_TOKEN }} --non-interactive --no-wait --no-persist-id
 
